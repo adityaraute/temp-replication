@@ -29,8 +29,9 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: 927a7b5e6cc14e3894e26ac1c80a0b55
+          force-coverage-parser: true
           # or
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: .
+          coverage-reports: test-results/result.xml
           # or a comma-separated list for multiple reports
           # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>
