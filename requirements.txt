@@ -4,3 +4,4 @@ pytest-sugar
 pytest-xdist
 requests
 requests-mock
+codacy-coverage
