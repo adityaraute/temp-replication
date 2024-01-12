@@ -22,8 +22,10 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --junitxml=test_result.xml
+          pytest --cov=tests --cov-report=cobertura --junitxml=test_results.xml
           coverage run -m pytest
+   #       pytest --junitxml=test_result.xml
+          
           # pytest --junitxml=test_result.xml
 
       - name: Generate coverage report
@@ -37,4 +39,4 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: /home/runner/work/temp-replication/temp-replication/test_result.xml
-          final: true
+        
