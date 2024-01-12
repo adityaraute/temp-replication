@@ -1,6 +1,3 @@
-# test_my_module.py
-from my_module import add_numbers
-
 def test_add_numbers():
     # Test case 1
     result = add_numbers(3, 5)
