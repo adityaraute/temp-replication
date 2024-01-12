@@ -25,6 +25,12 @@ jobs:
           pytest --junit-xml test-results/pytest.xml
         #  pytest tests/test.py --junitxml=test-results/result.xml
        #   pytest tests/test.py --junit-xml test-results/result.xml
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cov.xml
+          path: test-results/pytest.xml
+
 
       - name: upload result
         env:
@@ -33,7 +39,7 @@ jobs:
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
         run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r test-results/pytest.xml 
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r cov.xml 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
