@@ -38,6 +38,7 @@ jobs:
         run: |
           echo "API Token: $CODACY_API_TOKEN"
           cat /home/runner/work/temp-replication/temp-replication/test_result.xml
+          coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
           bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /home/runner/work/temp-replication/temp-replication/test_result.xml 
           
       - name: Run codacy-coverage-reporter
