@@ -24,10 +24,6 @@ jobs:
         run: |
           pytest tests/test.py --junitxml=test-results/result.xml
        #   pytest tests/test.py --junit-xml test-results/result.xml
-      - name: upload files
-        run: python-codacy-coverage -r test-results/result.xml
-        env:
-          CODACY_PROJECT_TOKEN: 927a7b5e6cc14e3894e26ac1c80a0b55
        
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
@@ -35,6 +31,6 @@ jobs:
           project-token: 927a7b5e6cc14e3894e26ac1c80a0b55
           # or
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: temp.xml
+          coverage-reports: test-results/result.xml
           # or a comma-separated list for multiple reports
           # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>
