@@ -23,15 +23,7 @@ jobs:
         continue-on-error: true
         run: |
           pytest tests/test.py --junit-xml test-results/result.xml
-
-
-      - name: Surface failing tests
-        if: always()
-        uses: pmeier/pytest-results-action@main
-        with:
-          path: test-results.xml
     
-        
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
