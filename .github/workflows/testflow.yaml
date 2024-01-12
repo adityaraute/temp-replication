@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --cov=tests --cov-report=cobertura --junitxml=test_results.xml
+          pytest --cov=tests --cov-report=xml --junitxml=test_results.xml
           coverage run -m pytest
    #       pytest --junitxml=test_result.xml
           
