@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Installing Dependencies for Tests
-        run: pip install --upgrade pip && pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Execute Tests
         run: pytest --junit-xml test-results/pytest.xml
