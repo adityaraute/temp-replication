@@ -1,0 +1,19 @@
+name: workflow test
+
+on:
+  push:
+    branches:
+      - main
+jobs:      
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installing Dependencies for Tests
+        run: pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Execute Tests
+        run: pytest --junit-xml test-results/pytest.xml
+
+      - name: list files
+        run: ls -ltra
