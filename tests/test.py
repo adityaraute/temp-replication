@@ -1,3 +1,5 @@
+import pytest
+import coverage
 # calculator.py
 
 def add(a, b):
