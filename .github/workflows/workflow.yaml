@@ -25,7 +25,7 @@ jobs:
           pytest tests/test.py --junitxml=test-results/result.xml
        #   pytest tests/test.py --junit-xml test-results/result.xml
       - name: list files
-        run: cat results/result.xml
+        run: cat test-results/result.xml
        
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
