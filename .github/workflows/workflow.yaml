@@ -26,18 +26,12 @@ jobs:
        #   pytest tests/test.py --junit-xml test-results/result.xml
 
       - name: upload result
-        env:
-          CODACY_API_TOKEN=${{ secrets.CODACY_API_TOKEN }}
-          CODACY_ORGANIZATION_PROVIDER=gh
-          CODACY_USERNAME=Saurabhkr952
-          CODACY_PROJECT_NAME=temp-replication
         run: |
           bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r test-results/result.xml 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: 927a7b5e6cc14e3894e26ac1c80a0b55
-          force-coverage-parser: true
           # or
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: test-results/result.xml
