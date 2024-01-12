@@ -1,0 +1,46 @@
+name: workflow test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Installing Dependencies for Tests
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Tests
+        run: |
+          pytest --junitxml=test_result.xml
+          # Separate coverage report generation if using coverage package
+          coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
+
+  upload-coverage:
+    name: Upload Coverage to Codacy
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Debug - Print coverage report
+        run: cat /home/runner/work/temp-replication/temp-replication/test_result.xml
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: /home/runner/work/temp-replication/temp-replication/test_result.xml
