@@ -22,7 +22,7 @@ jobs:
       - name: Execute Tests
         continue-on-error: true
         run: |
-          pytest tests/test.py --junit-xml test-results/pytest.xml
+          pytest tests/test.py --junit-xml result.xml
 
 
       - name: list files
@@ -34,6 +34,6 @@ jobs:
           api-token: jZ9emG9EiMhkPNRExwHX
           # or
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: test-results/pytest.xml
+          coverage-reports: result.xml
           # or a comma-separated list for multiple reports
           # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>
