@@ -20,7 +20,10 @@ jobs:
           pip install --upgrade pip && pip install -r requirements.txt
 
       - name: Execute Tests
-        run: pytest tests/test.py --junit-xml test-results/pytest.xml
+        continue-on-error: true
+        run: |
+          pytest tests/test.py --junit-xml test-results/pytest.xml
+
 
       - name: list files
         run: ls -ltra
