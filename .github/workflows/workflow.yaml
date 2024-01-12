@@ -22,6 +22,7 @@ jobs:
       - name: Execute Tests
         continue-on-error: true
         run: |
+          pytest --junit-xml test-results/pytest.xml
           pytest tests/test.py --junitxml=test-results/result.xml
        #   pytest tests/test.py --junit-xml test-results/result.xml
 
