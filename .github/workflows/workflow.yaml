@@ -36,7 +36,7 @@ jobs:
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
         run: |
-          cat /home/runner/work/temp-replication/temp-replication/test_result.xml/test_result.xml
+          cat /home/runner/work/temp-replication/temp-replication/test_result.xml
           bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /home/runner/work/temp-replication/temp-replication/test_result.xml 
           
       - name: Run codacy-coverage-reporter
