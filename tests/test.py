@@ -1,9 +1,30 @@
-from other_code.services import DATA_SET_A, DATA_SET_B, DATA_SET_C
+import pytest
 
 
-def test_example():
+def test_div_zero_exception():
     """
-    But really, test cases should be callables containing assertions:
+    pytest.raises can assert that exceptions are raised (catching them)
     """
-    print("\nRunning test_example...")
-    assert DATA_SET_A == DATA_SET_B
+    with pytest.raises(ZeroDivisionError):
+        x = 1 / 0
+
+
+def test_keyerror_details():
+    """
+    The raised exception can be referenced, and further inspected (or asserted)
+    """
+    my_map = {"foo": "bar"}
+
+    with pytest.raises(KeyError) as ke:
+        baz = my_map["baz"]
+
+    # Our KeyError should reference the missing key, "baz"
+    assert "baz" in str(ke)
+
+
+def test_approximate_matches():
+    """
+    pytest.approx can be used to assert "approximate" numerical equality
+    (compare to "assertAlmostEqual" in unittest.TestCase)
+    """
+    assert 0.1 + 0.2 == pytest.approx(0.3)
