@@ -22,10 +22,14 @@ jobs:
 
       - name: Run Tests
         run: |
+          pytest --junitxml=test_result.xml
           coverage run -m pytest
           # pytest --junitxml=test_result.xml
+
+      - name: Generate coverage report
+        run: coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml     
           # Separate coverage report generation if using coverage package
-          coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
+        #  coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
 
 
       - name: Run codacy-coverage-reporter
@@ -33,3 +37,4 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: /home/runner/work/temp-replication/temp-replication/test_result.xml
+          final: true
