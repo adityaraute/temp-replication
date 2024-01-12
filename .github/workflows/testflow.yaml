@@ -27,9 +27,6 @@ jobs:
           # Separate coverage report generation if using coverage package
           coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
 
-      
-      - name: Debug - Print coverage report
-        run: cat /home/runner/work/temp-replication/temp-replication/test_result.xml
 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
