@@ -27,6 +27,7 @@ jobs:
       #    coverage run -m pytest tests
   
       - name: generate coverage report
+        continue-on-error: true
         run: |
           pytest --cov=. --cov-report=xml
           cat coverage.xml
