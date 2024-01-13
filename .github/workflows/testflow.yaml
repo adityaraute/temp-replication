@@ -22,17 +22,14 @@ jobs:
 
       - name: Run Tests
         run: |
-          coverage run -m pytest tests
-      #    pytest tests --junit-xml test-results/pytest.xml
-    
-
-           
-      
+          pytest tests --junit-xml test-results/pytest.xml
+      #    coverage run -m pytest tests
+  
       - name: generate coverage report
         run: |
           coverage xml 
           cat coverage.xml
-       #   pytest --cov=. --cov-report=xml
+          pytest --cov=. --cov-report=xml
         #  cat coverage.xml
 #          cat coverage.xml
 
