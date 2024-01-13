@@ -1,5 +1,6 @@
 # test_calculator.py
 import pytest
+import requests_mock
 # calculator.py
 
 def add(x, y):
