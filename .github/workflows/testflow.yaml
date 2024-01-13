@@ -34,6 +34,10 @@ jobs:
           
         #  cat coverage.xml
 #          cat coverage.xml
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage.xml
 
       - name: upload result
         env:
