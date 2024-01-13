@@ -38,17 +38,17 @@ jobs:
           pytest --cov=. --cov-report=json
 #          cat coverage.xml
         
-      - name: upload result
-        env:
-          CODACY_API_TOKEN: ${{ secrets.CODACY_API_TOKEN }}
-          CODACY_ORGANIZATION_PROVIDER: gh
-          CODACY_USERNAME: Saurabhkr952
-          CODACY_PROJECT_NAME: temp-replication
-        run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.json
-#      - name: Run codacy-coverage-reporter
-#        uses: codacy/codacy-coverage-reporter-action@v1
-#        with:
-#          project-token: ${{ secrets.CODACY_API_TOKEN }}
-#          coverage-reports: coverage.xml
+#      - name: upload result
+#        env:
+#          CODACY_API_TOKEN: ${{ secrets.CODACY_API_TOKEN }}
+#          CODACY_ORGANIZATION_PROVIDER: gh
+#          CODACY_USERNAME: Saurabhkr952
+#          CODACY_PROJECT_NAME: temp-replication
+#        run: |
+#          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.json
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: coverage.json
         
