@@ -30,7 +30,8 @@ jobs:
       
       - name: generate coverage report
         run: |
-          coverage xml -o cov.yaml
+          coverage xml 
+          cat coverage.xml
        #   pytest --cov=. --cov-report=xml
         #  cat coverage.xml
 #          cat coverage.xml
@@ -42,7 +43,7 @@ jobs:
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
         run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r cov.xml
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
 #      - name: Run codacy-coverage-reporter
 #        uses: codacy/codacy-coverage-reporter-action@v1.0.0
 #        with:
