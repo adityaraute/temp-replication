@@ -22,20 +22,17 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest tests --junit-xml test-results/pytest.xml
-     #     coverage run -m pytest
-   #       pytest --junitxml=test_result.xml
-          
-          # pytest --junitxml=test_result.xml
+          coverage run -m pytest
+      #    pytest tests --junit-xml test-results/pytest.xml
+    
 
            
-          # Separate coverage report generation if using coverage package
-        #  coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
-
+      
       - name: generate coverage report
         run: |
-          pytest --cov=. --cov-report=xml
-          cat coverage.xml
+          coverage xml -o cov.yaml
+       #   pytest --cov=. --cov-report=xml
+        #  cat coverage.xml
 #          cat coverage.xml
 
       - name: upload result
@@ -45,7 +42,7 @@ jobs:
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
         run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r cov.xml
 #      - name: Run codacy-coverage-reporter
 #        uses: codacy/codacy-coverage-reporter-action@v1.0.0
 #        with:
