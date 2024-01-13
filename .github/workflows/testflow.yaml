@@ -55,7 +55,6 @@ jobs:
           CODACY_ORGANIZATION_PROVIDER: gh
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
-          CODACY_REPORTER_VERSION: 3.13.8
         run: |
           bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
 #      - name: Run codacy-coverage-reporter
