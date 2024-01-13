@@ -62,5 +62,5 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: coverage.xml
-          coverage-reporter-version: 1.0.0
+          force-coverage-parser: Cobertura
         
