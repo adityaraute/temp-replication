@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest tests/test.py --junit-xml test-results/pytest.xml
+          pytest tests --junit-xml test-results/pytest.xml
       
      #     coverage run -m pytest
    #       pytest --junitxml=test_result.xml
