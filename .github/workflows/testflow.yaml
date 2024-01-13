@@ -32,8 +32,13 @@ jobs:
            
           # Separate coverage report generation if using coverage package
         #  coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
+
+      - name: generate coverage report
+        run: |
+          pytest --cov=. --cov-report=xml 
+          cat coverage.xml
+        
       - name: upload result
-        continue-on-error: true
         env:
           CODACY_API_TOKEN: ${{ secrets.CODACY_API_TOKEN }}
           CODACY_ORGANIZATION_PROVIDER: gh
@@ -41,7 +46,7 @@ jobs:
           CODACY_PROJECT_NAME: temp-replication
         run: |
           echo "API Token: $CODACY_API_TOKEN"
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r test-results/pytest.xml
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
 #      - name: Run codacy-coverage-reporter
 #        uses: codacy/codacy-coverage-reporter-action@v1
 #        with:
