@@ -62,5 +62,4 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: coverage.xml
-          force-coverage-parser: JaCoCo
         
