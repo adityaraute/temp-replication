@@ -35,7 +35,7 @@ jobs:
 
       - name: generate coverage report
         run: |
-          pytest --cov=. --cov-report=xml 
+          pytest --cov=. --cov-report=json
           cat coverage.xml
         
       - name: upload result
@@ -45,7 +45,7 @@ jobs:
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
         run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.json
 #      - name: Run codacy-coverage-reporter
 #        uses: codacy/codacy-coverage-reporter-action@v1
 #        with:
