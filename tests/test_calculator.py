@@ -1,5 +1,5 @@
 import pytest
-import coverage
+import requests_mock
 # calculator.py
 
 def add(a, b):
