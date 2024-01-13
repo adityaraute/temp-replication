@@ -19,6 +19,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+          pip install coverage
 
       - name: Run Tests
         run: |
@@ -27,9 +28,10 @@ jobs:
   
       - name: generate coverage report
         run: |
-          coverage xml 
-          cat coverage.xml
           pytest --cov=. --cov-report=xml
+      #    coverage xml 
+      #    cat coverage.xml
+          
         #  cat coverage.xml
 #          cat coverage.xml
 
