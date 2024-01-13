@@ -51,13 +51,13 @@ jobs:
 
       - name: upload result
         env:
-          CODACY_PROJECT_TOKEN: 927a7b5e6cc14e3894e26ac1c80a0b55
+          CODACY_API_TOKEN: ${{ secrets.CODACY_API_TOKEN }}
           CODACY_ORGANIZATION_PROVIDER: gh
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
+          CODACY_REPORTER_VERSION: 3.13.8
         run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
-#          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
 #      - name: Run codacy-coverage-reporter
 #        uses: codacy/codacy-coverage-reporter-action@v1
 #        with:
