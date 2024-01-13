@@ -23,7 +23,6 @@ jobs:
       - name: Run Tests
         run: |
           pytest tests --junit-xml test-results/pytest.xml
-          cat test-results/pytest.xml
      #     coverage run -m pytest
    #       pytest --junitxml=test_result.xml
           
@@ -36,6 +35,7 @@ jobs:
       - name: generate coverage report
         run: |
           pytest --cov=. --cov-report=xml
+          cat coverage.xml
 #          cat coverage.xml
 
       - name: upload result
