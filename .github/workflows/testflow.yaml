@@ -57,7 +57,10 @@ jobs:
           CODACY_PROJECT_NAME: temp-replication
           CODACY_REPORTER_VERSION: 3.13.8
         run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
+          curl -Ls -o codacy-coverage-reporter "$(curl -Ls https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/3.13.8 | jq -r '.assets | map({name, browser_download_url} | select(.name | contains("codacy-coverage-reporter-linux"))) | .[0].browser_download_url')"
+          chmod +x codacy-coverage-reporter
+          ./codacy-coverage-reporter report
+#          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
 #      - name: Run codacy-coverage-reporter
 #        uses: codacy/codacy-coverage-reporter-action@v1
 #        with:
