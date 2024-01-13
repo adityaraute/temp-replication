@@ -35,7 +35,7 @@ jobs:
 
       - name: generate coverage report
         run: |
-          pytest --cov=. --cov-report=html
+          pytest --cov=. --cov-report=xml
 #          cat coverage.xml
         
 #      - name: upload result
@@ -50,5 +50,5 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: htmlcov/index.html
+          coverage-reports: coverage.xml
         
