@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.3
         with:
           name: cov.xml # Artifact name        
-          path: coverage.xml # Directory containing files to upload  
+          path: coveragereport # Directory containing files to upload  
       - name: upload result
         env:
           CODACY_API_TOKEN: ${{ secrets.CODACY_API_TOKEN }}
