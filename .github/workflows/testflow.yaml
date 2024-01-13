@@ -58,8 +58,9 @@ jobs:
 #        run: |
 #          bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l python -r coverage.xml
       - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1.0.0
+        uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: coverage.xml
+          coverage-reporter-version: 1.0.0
         
