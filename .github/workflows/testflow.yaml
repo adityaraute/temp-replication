@@ -36,7 +36,7 @@ jobs:
       - name: generate coverage report
         run: |
           pytest --cov=. --cov-report=json
-          cat coverage.xml
+#          cat coverage.xml
         
       - name: upload result
         env:
