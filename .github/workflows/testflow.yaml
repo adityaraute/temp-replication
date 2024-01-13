@@ -22,23 +22,20 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest --cov=tests --cov-report=xml --junitxml=test_result.xml
+          pytest tests/test.py --junit-xml test-results/pytest.xml
       
      #     coverage run -m pytest
    #       pytest --junitxml=test_result.xml
           
           # pytest --junitxml=test_result.xml
 
-      - name: Generate coverage report
-        run: coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml     
+           
           # Separate coverage report generation if using coverage package
         #  coverage xml -o /home/runner/work/temp-replication/temp-replication/test_result.xml
-      - name: Print Coverage File
-        run: cat /home/runner/work/temp-replication/temp-replication/test_result.xml
 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: /home/runner/work/temp-replication/temp-replication/test_result.xml
+          coverage-reports: test-results/pytest.xml
         
