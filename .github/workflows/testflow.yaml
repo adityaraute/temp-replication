@@ -38,7 +38,7 @@ jobs:
           CODACY_ORGANIZATION_PROVIDER: gh
           CODACY_USERNAME: Saurabhkr952
           CODACY_PROJECT_NAME: temp-replication
-          CODACY_REPORTER_VERSION: 13.14.0
+          CODACY_REPORTER_VERSION: 13.13.15
           # 13.13.8
           CODACY_REPORTER_SKIP_CHECKSUM: false
         run: |
