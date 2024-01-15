@@ -27,6 +27,7 @@ jobs:
 
       - name: Installing Dependencies for Tests
         run: |
+          echo "Ref Type: ${{ github.ref_type }}"
           pip install --upgrade pip
           pip install -r requirements.txt
 
