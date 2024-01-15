@@ -3,8 +3,8 @@ name: workflow test
 on:
   push:
     branches:
-      - '**'
-  tags:
+    - '**'
+    tags:
     - '*'
 
 jobs:
