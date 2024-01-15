@@ -9,9 +9,9 @@ on:
 
 jobs:
   tests:
+    if: github.ref_name == 'tag'
     name: experiment
     runs-on: ubuntu-latest
-    if: github.ref_name == 'tag'
     steps:
       - name: Installing Dependencies for Tests
         run: |
