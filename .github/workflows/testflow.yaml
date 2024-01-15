@@ -5,11 +5,11 @@ on:
     branches:
       - '**'
     tags:
-      - '**'
+      - '*'
 
 jobs:
   tests:
-    if: ${{ github.ref == 'ref/heads/tag' }}
+    if: github.ref_name == 'tag'
     name: experiment
     runs-on: ubuntu-latest
     steps:
