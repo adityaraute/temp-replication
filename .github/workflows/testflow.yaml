@@ -2,10 +2,10 @@ name: workflow test
 
 on:
   push:
-#    branches:
-#      - '**'
-    tags:
-      - 'v1.*'
+    branches:
+      - '**'
+  tags:
+    - '*'
 
 jobs:
   tests:
