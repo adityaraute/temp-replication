@@ -2,8 +2,8 @@ name: workflow test
 
 on:
   push:
-    branches:
-      - '**'
+#    branches:
+#      - '**'
     tags:
       - '*'
 
