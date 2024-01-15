@@ -9,7 +9,7 @@ on:
 
 jobs:
   tests:
-    if: github.ref_name == 'main'
+    if: github.ref_name == 'tag'
     name: experiment
     runs-on: ubuntu-latest
     steps:
