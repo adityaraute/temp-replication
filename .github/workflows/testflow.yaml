@@ -3,9 +3,19 @@ name: workflow test
 on:
   push:
     branches:
-      - main
+      - '**'
+    tags:
+      - '**'
 
 jobs:
+  tests:
+    name: experiment
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'tag'
+    steps:
+      - name: Installing Dependencies for Tests
+        run: |
+          echo "Hello WOrld"
   test:
     name: Run Tests
     runs-on: ubuntu-latest
