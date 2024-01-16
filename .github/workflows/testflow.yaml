@@ -9,7 +9,8 @@ on:
 
 jobs:
   tests:
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
+
     name: experiment
     runs-on: ubuntu-latest
     steps:
