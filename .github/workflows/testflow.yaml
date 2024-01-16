@@ -9,10 +9,9 @@ on:
 
 jobs:
   tests:
-    if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
-
     name: experiment
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/main'
     steps:
       - name: Installing Dependencies for Tests
         run: |
@@ -54,6 +53,7 @@ jobs:
   upload_result:
     name: Upload Result to Codacy
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     needs:
       - test
     steps:
