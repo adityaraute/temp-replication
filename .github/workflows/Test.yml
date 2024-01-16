@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - '*'
+      - 'Saurabhkr952-patch-1'
 
 jobs:
   t:
