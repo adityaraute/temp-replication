@@ -3,8 +3,7 @@ name: tcv
 on:
   push:
     branches:
-      - '*'
-      - 'Saurabhkr952-patch-1'
+      - 'feature'
 
 jobs:
   t:
