@@ -1,0 +1,16 @@
+name: branch-3 workflow
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '*' 
+
+jobs:
+  test:
+    name:  test
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Download Artifact
+        run: echo "HEllo"
