@@ -3,7 +3,6 @@ name: tcv
 on:
   push:
     branches:
-      - '**'
       - '*'
 
 jobs:
@@ -12,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Download Artifact
-        run: echo "HEllo"
+        run: echo "Hello"
