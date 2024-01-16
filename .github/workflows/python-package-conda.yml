@@ -3,7 +3,7 @@ name: branch-3 workflow
 on:
   push:
     branches:
-      - '**'
+      - '*'
     tags:
       - '*' 
 
