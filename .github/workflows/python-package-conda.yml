@@ -72,6 +72,8 @@ jobs:
     name:  Upload Coverage report to Codacy
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    needs:
+      - test
     steps: 
       - name: Download Artifact
         uses: actions/download-artifact@v4
