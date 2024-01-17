@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+     - 'fix'
+    tags:
+      - '*' 
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: echo "Hello World"
